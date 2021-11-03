@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"ginjwt/pkg/logging"
 	"ginjwt/pkg/setting"
 	"ginjwt/routers"
 
@@ -22,11 +23,12 @@ func main() {
 	fmt.Printf("运行端口:%v\n", endPoint)
 
 	server := endless.NewServer(endPoint, routers.InitRouter())
-
+	logging.Info(endPoint)
 	err = server.ListenAndServe()
 	if err != nil {
 		//panic(err)
 		fmt.Printf("%v\n", err.Error())
+		logging.Debug(err.Error())
 		return
 	}
 

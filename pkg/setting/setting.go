@@ -24,6 +24,7 @@ func init() {
 	if err != nil {
 		//panic(err)
 		fmt.Printf("读取配置文件错误 %v\n", err.Error())
+
 		return
 	}
 	LoadBase()
